@@ -2,8 +2,12 @@
 # Linksys-Router-RCE
 A exploit for older Linksys Smart Wi-Fi routers that's able to get root shell access and unsigned firmware (like OpenWRT) with just the web admin login.
 
+
 ## IMPORTANT:
 This exploit was discovered by IOActive and patched in 2017 (It's still possible to downgrade the firmware from the web interface though) but since they never released a PoC I used AI to look through my vulnerable firmware I extracted and it found the exploit. (Only the exploit was found with AI but this writing is not AI generated)
+
+
+### ALSO I'M NOT RESPONSIBLE FOR ANY DAMAGED ROUTERS, UNAUTHORIZED TAMPERING, OR ANY OTHER DAMAGES CAUSED FROM THIS EXPLOIT
 
 ## Tested devices:
 Linksys EA9400, Firmware 1.0.2.174688
