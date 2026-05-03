@@ -1,0 +1,58 @@
+name: Add new device to tested devices list.
+description: Help others save time by letting them know if they can use this exploit on their router.
+title: "[New device]: <replace this text with router model>"
+labels: ["New device", "documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Please answer all questions unless it's marked as optional
+  - type: input
+    id: router_model
+    attributes:
+      label: What router did you use?
+      description: "Replace this text with the router model (including hardware revision if you have a newer version of the router, for example for the original EA9400, just say EA9400, for the EA9400V2, you must include the V2 because they are very different routers, your router also must be a model that isn't already on the [list of tested devices](https://github.com/SomeTechyGuy/Linksys-Router-RCE#tested-devices)"
+      placeholder: e.g. EA9500V1.1
+    validations:
+      required: true
+  - type: dropdown
+    id: firmware_status
+    attributes:
+      label: Did you downgrade the firmware or stay on a older firmware?
+      description: "You can check the latest firmware version on release notes for your router to compare the version to what you have if you didn't downgrade but used the exploit successfully"
+      options:
+        - Stayed on older firmware
+        - Downgraded the firmware
+        - Used latest firmware (Exploit still worked)
+    validations:
+      required: true
+  - type: textarea
+    id: downgrade_details
+    attributes:
+      label: "If you downgraded or used a older firmware, what was the original firmware (optional), how did you downgrade (optional if you stayed on old firmware but didn't downgrade, if you downgraded you must answer this), and what older firmware version did you use to run the exploit (required)?"
+      placeholder: "Answer here"
+  - type: checkboxes
+    id: readme_methods
+    attributes:
+      label: Downgrade Methods
+      description: "If you need(ed) to downgrade your firmware for this exploit to work, will any of the downgrade methods in the README work on the router?"
+      options:
+        - label: "Yes, the README methods worked"
+        - label: "No, I had to use a different method (describe below)"
+  - type: textarea
+    id: custom_downgrade_desc
+    attributes:
+      label: "If you downgraded using a method that isn't on the README, describe how you downgraded below:"
+      description: "it must be a software method, if you used a hardware method like UART or needed to take apart the router in some way, you should post about that somewhere else"
+      placeholder: "Answer here"
+  - type: input
+    id: region
+    attributes:
+      label: What region is your router?
+      description: "You should be able to check in http://<router IP>/sysinfo.cgi (look for the keyword \"cert_region\", you should see something like \"device::cert_region=US\" or a equivalent for whatever region your router was purchased at)"
+    validations:
+      required: true
+  - type: textarea
+    id: extra_info
+    attributes:
+      label: (optional) If you have any other useful info, add it here
