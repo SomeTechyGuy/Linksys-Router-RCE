@@ -5,7 +5,7 @@ A exploit for older Linksys Smart Wi-Fi routers that's able to get root shell ac
 
 
 ## IMPORTANT:
-This exploit was discovered by IOActive and patched in 2017 (It's still possible to downgrade the firmware from the web interface though) but since they never released a PoC I used AI to look through my vulnerable firmware I extracted and it found the exploit. (Only the exploit was found with AI but this writing is not AI generated)
+This exploit was discovered by IOActive and patched in 2017 (It's still possible to downgrade the firmware from the web interface though) but since they never released a PoC I used AI to look through my vulnerable firmware I extracted and it found the exploit. (Only the exploit and RCE payload was found/made with AI but NONE of the writing, images, Markdown, GIFs, or other content here is AI generated)
 
 ### ALSO I'M NOT RESPONSIBLE FOR ANY DAMAGED ROUTERS, UNAUTHORIZED TAMPERING, OR ANY OTHER DAMAGES CAUSED FROM THIS EXPLOIT. IT IS YOUR RESPONSIBILITY TO NOT BREAK THE LAW OR CAUSE ANY DAMAGES USING THIS EXPLOIT.
 
